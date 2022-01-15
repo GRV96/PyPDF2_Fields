@@ -117,32 +117,6 @@ class RadioBtnGroup:
 		return self._name
 
 
-def pdf_field_name_val_dict(pdf_fields, filter_none):
-	"""
-	Creates a dictionary that maps the name of a PDF file's fields to their
-	value.
-
-	Args:
-		pdf_fields (dict): It maps the name of the file's fields to an object
-			of type Field. It is obtained through PdfFileReader's method
-			getFields.
-		filter_none (bool): If this argument is True, None values are excluded
-			from the returned dictionary.
-
-	Returns:
-		dict: It maps the fields' name to their value.
-	"""
-	name_val_dict = dict()
-
-	for mapping_name, field in pdf_fields.items():
-		field_val = field.value
-
-		if not filter_none or field_val is not None:
-			name_val_dict[mapping_name] = field_val
-
-	return name_val_dict
-
-
 def get_field_type(pdf_field):
 	"""
 	Determines the type of the given PDF field: text field, checkbox or radio
@@ -214,6 +188,32 @@ def make_writer_from_reader(pdf_reader, editable):
 		pdf_writer.cloneDocumentFromReader(pdf_reader)
 
 	return pdf_writer
+
+
+def pdf_field_name_val_dict(pdf_fields, filter_none):
+	"""
+	Creates a dictionary that maps the name of a PDF file's fields to their
+	value.
+
+	Args:
+		pdf_fields (dict): It maps the name of the file's fields to an object
+			of type Field. It is obtained through PdfFileReader's method
+			getFields.
+		filter_none (bool): If this argument is True, None values are excluded
+			from the returned dictionary.
+
+	Returns:
+		dict: It maps the fields' name to their value.
+	"""
+	name_val_dict = dict()
+
+	for mapping_name, field in pdf_fields.items():
+		field_val = field.value
+
+		if not filter_none or field_val is not None:
+			name_val_dict[mapping_name] = field_val
+
+	return name_val_dict
 
 
 def set_need_appearances(pdf_writer, bool_val):
