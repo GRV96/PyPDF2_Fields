@@ -21,8 +21,10 @@ def field_type_test(field_name, expected_type):
 	assert get_field_type(tested_field) == expected_type
 
 
-def test_field_type_text():
-	field_type_test("Matricule", PdfFieldType.TEXT_FIELD)
+def test_field_type_action_btn():
+	field_type_test("Initialisation", PdfFieldType.ACTION_BTN)
+	field_type_test("Valider-BAS", PdfFieldType.ACTION_BTN)
+	field_type_test("Valider-HAUT", PdfFieldType.ACTION_BTN)
 
 
 def test_field_type_checkbox():
@@ -31,3 +33,7 @@ def test_field_type_checkbox():
 
 def test_field_type_radio_btn_group():
 	field_type_test("Group1", PdfFieldType.RADIO_BTN_GROUP)
+
+
+def test_field_type_text():
+	field_type_test("Matricule", PdfFieldType.TEXT_FIELD)
