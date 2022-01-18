@@ -2,6 +2,7 @@ from enum import Enum
 
 
 _FIELD_TYPE = "/FT"
+_KEY_KIDS = "/Kids"
 _TYPE_BUTTON = "/Btn"
 _TYPE_TEXT = "/Tx"
 
