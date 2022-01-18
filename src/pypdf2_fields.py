@@ -103,7 +103,6 @@ class RadioBtnGroup:
 		return self._name
 
 
-
 def _make_radio_btn_group_dict(radio_btn_groups):
 	"""
 	Creates a dictionary that associates each given radio button group with
