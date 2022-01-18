@@ -2,6 +2,10 @@ from PyPDF2 import PdfFileWriter
 from PyPDF2.generic import BooleanObject,\
 	IndirectObject, NameObject, TextStringObject
 
+from ..src import\
+	PdfFieldType,\
+	get_field_type
+
 
 _KEY_ACROFORM = "/AcroForm"
 _KEY_ANNOTS = "/Annots"
