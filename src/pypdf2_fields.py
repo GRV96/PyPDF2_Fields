@@ -212,7 +212,7 @@ def update_page_fields(page, fields, *radio_btn_groups):
 	unchecked state. For a radio button group, the value must be the index of
 	the selected button. The index must correspond to a button name contained
 	in the RadioBtnGroup instance in argument radio_btn_groups that bears the
-	name of the group.
+	name of the group. Action buttons are ignored.
 
 	Args:
 		page (PyPDF2.pdf.PageObject): a page from a PdfFileWriter instance
