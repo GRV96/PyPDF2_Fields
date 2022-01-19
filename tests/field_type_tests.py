@@ -8,7 +8,7 @@ from ..src import\
 	get_field_type
 
 
-_FIELDS_EMPTY_PATH = Path(__file__).parent/"fields_empty.pdf"
+_FIELDS_EMPTY_PATH = (Path(__file__).parent/"fields_empty.pdf").resolve()
 _MODE_RB = "rb"
 
 
@@ -19,6 +19,16 @@ def field_type_test(field_name, expected_type):
 	tested_field = fields[field_name]
 
 	assert get_field_type(tested_field) == expected_type
+
+
+def test_inexistent_field_type():
+	a_dict = {"/FT": "aucun"}
+	assert get_field_type(a_dict) == PdfFieldType.NONE
+
+
+def test_no_field_type_key():
+	a_dict = {"x": "y"}
+	assert get_field_type(a_dict) == PdfFieldType.NONE
 
 
 def test_field_type_action_btn():
