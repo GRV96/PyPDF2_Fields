@@ -12,6 +12,7 @@ class PdfFieldType(Enum):
 	"""
 	This enumeration represents the field types that a PDF file can contain.
 	"""
+	NONE = -1
 	ACTION_BTN = 0
 	CHECKBOX = 1
 	RADIO_BTN_GROUP = 2
@@ -29,7 +30,8 @@ def get_field_type(pdf_field):
 			returned by PdfFileReader's method getFields.
 
 	Returns:
-		PdfFieldType: the type of pdf_field or None if no type is determined
+		PdfFieldType: the type of pdf_field. PdfFieldType.NONE indicates that
+			no type was determined
 	"""
 	type_val = pdf_field.get(_FIELD_TYPE)
 
@@ -47,4 +49,4 @@ def get_field_type(pdf_field):
 			return PdfFieldType.CHECKBOX
 
 	else:
-		return None
+		return PdfFieldType.NONE

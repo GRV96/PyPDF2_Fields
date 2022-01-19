@@ -23,12 +23,12 @@ def field_type_test(field_name, expected_type):
 
 def test_inexistent_field_type():
 	a_dict = {"/FT": "aucun"}
-	assert get_field_type(a_dict) is None
+	assert get_field_type(a_dict) == PdfFieldType.NONE
 
 
 def test_no_field_type_key():
 	a_dict = {"x": "y"}
-	assert get_field_type(a_dict) is None
+	assert get_field_type(a_dict) == PdfFieldType.NONE
 
 
 def test_field_type_action_btn():
