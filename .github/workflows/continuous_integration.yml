@@ -16,7 +16,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Intall dependencies
         run: pip3 install --no-cache-dir -r requirements-dev.txt
-      - name: Move to the test directory
-        run: cd tests
       - name: Execute unit tests
-        run: python run_all_tests.py
+        run: python tests/run_all_tests.py
