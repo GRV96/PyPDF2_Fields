@@ -8,7 +8,7 @@ from ..src import\
 	get_field_type
 
 
-_FIELDS_EMPTY_PATH = Path(__file__).parent/"fields_empty.pdf"
+_FIELDS_EMPTY_PATH = (Path(__file__).parent/"fields_empty.pdf").resolve()
 _MODE_RB = "rb"
 
 

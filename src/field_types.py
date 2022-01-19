@@ -24,9 +24,9 @@ def get_field_type(pdf_field):
 	button group.
 
 	Args:
-		pdf_field (dict): a dictionary that represents a field of a PDF file.
-			This argument can be a value of the dictionary returned by
-			PdfFileReader's method getFields.
+		pdf_field (PyPDF2.generic.Field): a dictionary that represents a field
+			of a PDF file. This argument can be a value of the dictionary
+			returned by PdfFileReader's method getFields.
 
 	Returns:
 		PdfFieldType: the type of pdf_field or None if no type is determined
