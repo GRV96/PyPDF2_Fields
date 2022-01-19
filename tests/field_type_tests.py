@@ -21,6 +21,16 @@ def field_type_test(field_name, expected_type):
 	assert get_field_type(tested_field) == expected_type
 
 
+def test_inexistent_field_type():
+	a_dict = {"/FT": "aucun"}
+	assert get_field_type(a_dict) is None
+
+
+def test_no_field_type_key():
+	a_dict = {"x": "y"}
+	assert get_field_type(a_dict) is None
+
+
 def test_field_type_action_btn():
 	field_type_test("Initialisation", PdfFieldType.ACTION_BTN)
 	field_type_test("Valider-BAS", PdfFieldType.ACTION_BTN)
