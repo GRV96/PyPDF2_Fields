@@ -46,6 +46,14 @@ def test_getitem_exception_negative_index():
 	getitem_exception_test(-4)
 
 
+def test_has_index():
+	button_group = make_radio_button_group()
+	assert not button_group.has_index(3)
+	assert button_group.has_index(2)
+	assert button_group.has_index(-3)
+	assert not button_group.has_index(-4)
+
+
 def test_name():
 	button_group = make_radio_button_group()
 	assert button_group.name == "LeGroupe"
