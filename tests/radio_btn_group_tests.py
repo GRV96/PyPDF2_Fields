@@ -54,6 +54,22 @@ def test_has_index():
 	assert not button_group.has_index(-4)
 
 
+def test_index():
+	button_group = make_radio_button_group()
+	assert button_group.index("BtnA") == 0
+	assert button_group.index("BtnB") == 1
+	assert button_group.index("BtnC") == 2
+
+
+def test_index_exception():
+	button_group = make_radio_button_group()
+	button_name = "Inexistant"
+	except_msg =\
+		f"Radio button group LeGroupe does not have button {button_name}."
+	with pytest.raises(ValueError, match=except_msg):
+		button_group.index(button_name)
+
+
 def test_name():
 	button_group = make_radio_button_group()
 	assert button_group.name == "LeGroupe"
