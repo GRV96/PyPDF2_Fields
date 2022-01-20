@@ -70,6 +70,13 @@ def test_index_exception():
 		button_group.index(button_name)
 
 
+def test_iterator():
+	button_group = make_radio_button_group()
+	actual_names = tuple(button_group)
+	expected_names = ("BtnA", "BtnB", "BtnC")
+	assert actual_names == expected_names
+
+
 def test_length():
 	button_group = make_radio_button_group()
 	assert len(button_group) == 3
