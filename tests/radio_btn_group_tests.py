@@ -70,6 +70,11 @@ def test_index_exception():
 		button_group.index(button_name)
 
 
+def test_length():
+	button_group = make_radio_button_group()
+	assert len(button_group) == 3
+
+
 def test_name():
 	button_group = make_radio_button_group()
 	assert button_group.name == "LeGroupe"
