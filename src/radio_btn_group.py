@@ -49,8 +49,7 @@ class RadioBtnGroup:
 			bool: True if this group has the given index, False otherwise
 		"""
 		size = len(self)
-		return 0 <= index and index < size\
-			or -size <= index and index <= -1
+		return -size <= index and index < size
 
 	def index(self, btn_name):
 		"""
