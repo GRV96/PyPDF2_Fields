@@ -28,6 +28,13 @@ class RadioBtnGroup:
 		self._name = group_name
 		self._btn_names = btn_names
 
+	def __eq__(self, other):
+		if not isinstance(other, self.__class__):
+			return False
+
+		return self._name == other._name\
+			and self._btn_names == other._btn_names
+
 	def __getitem__(self, index):
 		try:
 			return self._btn_names[index]

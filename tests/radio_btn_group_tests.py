@@ -20,6 +20,34 @@ def test_init_exception():
 		button_group = RadioBtnGroup("LeGroupe")
 
 
+def test_eq_true():
+	button_group1 = make_radio_button_group()
+	button_group2 = RadioBtnGroup("LeGroupe", "BtnA", "BtnB", "BtnC")
+
+	assert button_group1 == button_group2
+
+
+def test_eq_false_button_name():
+	button_group1 = make_radio_button_group()
+	button_group2 = RadioBtnGroup("LeGroupe", "BtnA", "BtnX", "BtnC")
+
+	assert button_group1 != button_group2
+
+
+def test_eq_false_group_name():
+	button_group1 = make_radio_button_group()
+	button_group2 = RadioBtnGroup("AutreGroupe", "BtnA", "BtnB", "BtnC")
+
+	assert button_group1 != button_group2
+
+
+def test_eq_false_different_type():
+	button_group1 = make_radio_button_group()
+	button_group2 = "AutreGroupe"
+
+	assert button_group1 != button_group2
+
+
 def test_getitem_a():
 	button_group = make_radio_button_group()
 	assert button_group[0] == "BtnA"
