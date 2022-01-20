@@ -2,7 +2,7 @@ from PyPDF2 import PdfFileWriter
 from PyPDF2.generic import BooleanObject,\
 	IndirectObject, NameObject, TextStringObject
 
-from ..src import\
+from .field_types import\
 	PdfFieldType,\
 	get_field_type
 
