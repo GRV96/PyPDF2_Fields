@@ -113,3 +113,10 @@ def test_length():
 def test_name():
 	button_group = make_radio_button_group()
 	assert button_group.name == "LeGroupe"
+
+def test_repr():
+	button_group = make_radio_button_group()
+	actual_repr = repr(button_group)
+	expected_repr = "RadioBtnGroup('LeGroupe', 'BtnA', 'BtnB', 'BtnC')"
+	assert actual_repr == expected_repr
+	assert eval(actual_repr) == button_group

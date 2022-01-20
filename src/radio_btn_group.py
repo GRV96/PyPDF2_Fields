@@ -92,3 +92,7 @@ class RadioBtnGroup:
 		str: the name of this radio button group
 		"""
 		return self._name
+
+	def __repr__(self):
+		return self.__class__.__name__ + "('"\
+			+ self._name + "', " + str(self._btn_names)[1:]
