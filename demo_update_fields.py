@@ -48,5 +48,5 @@ radio_btn_group4 = RadioBtnGroup(
 update_page_fields(writer.getPage(0), field_content,
 	radio_btn_group1, radio_btn_group2, radio_btn_group4)
 
-set_need_appearances(writer, args.unset_na) # To make field values visible
+set_need_appearances(writer, not args.unset_na)
 writer.write(file_filled_fields.open(mode="wb"))
