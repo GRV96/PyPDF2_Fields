@@ -5,12 +5,13 @@ from src import\
 	make_writer_from_reader,\
 	RadioBtnGroup,\
 	set_need_appearances,\
-	update_page_fields
+	update_page_fields,\
+	pdf_field_name_val_dict
 
 file_empty_fields = Path("tests/fields_empty.pdf")
 file_filled_fields = Path("demo_result.pdf")
 reader = PdfFileReader(file_empty_fields.open(mode="rb"), strict=False)
-writer = make_writer_from_reader(reader, False)
+writer = make_writer_from_reader(reader, True)
 
 field_content = {
 	"Détails3": "Dépense 3",
@@ -28,8 +29,7 @@ radio_btn_group2 = RadioBtnGroup(
 radio_btn_group4 = RadioBtnGroup(
 	"Group4", "/Dépôt", "/Chèque")
 
-page = writer.getPage(0)
-update_page_fields(page, field_content,
+update_page_fields(writer.getPage(0), field_content,
 	radio_btn_group1, radio_btn_group2, radio_btn_group4)
 
 set_need_appearances(writer, True) # To make field values visible
