@@ -18,7 +18,7 @@ field_content = {
 	"Group2": 1,
 	"Group4": 0,
 	"Boite1": True,
-	"Date": "2021-03-01",
+	"Date": "2021-03-01"
 }
 
 radio_btn_group1 = RadioBtnGroup(
