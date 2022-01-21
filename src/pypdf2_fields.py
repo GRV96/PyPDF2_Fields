@@ -70,8 +70,8 @@ def pdf_field_name_val_dict(pdf_fields, filter_none):
 
 	Args:
 		pdf_fields (dict): It maps the name of the file's fields to an object
-			of type Field. It is obtained through PdfFileReader's method
-			getFields.
+			of type PyPDF2.generic.Field. It is obtained through
+			PdfFileReader's method getFields.
 		filter_none (bool): If this argument is True, None values are excluded
 			from the returned dictionary.
 
@@ -144,7 +144,7 @@ def update_page_fields(page, fields, *radio_btn_groups):
 	else:
 		radio_buttons = False
 
-	# Names of the set radio button groups
+	# Names of the radio button groups that were set
 	radio_btn_grp_names = list()
 
 	page_annots = page[_KEY_ANNOTS]
