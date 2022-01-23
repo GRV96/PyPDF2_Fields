@@ -34,8 +34,10 @@ field_content = {
 	"Montant$2": 2,
 	"Group2": 1,
 	"Group4": 0,
-	"Boite1": True,
-	"Date": "2022-01-21"
+	# "Yes" in French. Makes the box checked.
+	"Boite1": "/Oui",
+	"Date": "2022-01-21",
+	"Province": "Québec"
 }
 
 radio_btn_group1 = RadioBtnGroup(
