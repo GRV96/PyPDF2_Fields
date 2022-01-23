@@ -27,10 +27,10 @@ editable = args.editable
 need_appearances = not args.unset_na
 
 local_dir = Path(__file__).parent.resolve()
-file_empty_fields = local_dir/"tests/fields_empty.pdf"
-file_filled_fields = local_dir/"demo_result.pdf"
+path_empty_fields = local_dir/"tests/fields_empty.pdf"
+path_filled_fields = local_dir/"demo_result.pdf"
 
-reader = PdfFileReader(file_empty_fields.open(mode="rb"), strict=False)
+reader = PdfFileReader(path_empty_fields.open(mode="rb"), strict=False)
 writer = make_writer_from_reader(reader, editable)
 
 field_content = {
@@ -55,4 +55,4 @@ update_page_fields(writer.getPage(0), field_content,
 	radio_btn_group1, radio_btn_group2, radio_btn_group4)
 
 set_need_appearances(writer, need_appearances)
-writer.write(file_filled_fields.open(mode="wb"))
+writer.write(path_filled_fields.open(mode="wb"))
