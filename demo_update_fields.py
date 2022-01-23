@@ -1,6 +1,6 @@
 """
 This demo of library PyPDF2_Fields creates a copy of a report template and sets
-some of its fields to arbitrary values.
+some of its fields to an arbitrary value.
 """
 
 
