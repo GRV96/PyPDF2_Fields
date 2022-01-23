@@ -23,11 +23,15 @@ parser.add_argument("-u", "--unset-na", action="store_true",
 	help="Sets property NeedAppearances of the generated document to False.")
 
 args = parser.parse_args()
+editable = args.editable
+need_appearances = not args.unset_na
 
-file_empty_fields = Path("tests/fields_empty.pdf")
-file_filled_fields = Path("demo_result.pdf")
+local_dir = Path(__file__).parent.resolve()
+file_empty_fields = local_dir/"tests/fields_empty.pdf"
+file_filled_fields = local_dir/"demo_result.pdf"
+
 reader = PdfFileReader(file_empty_fields.open(mode="rb"), strict=False)
-writer = make_writer_from_reader(reader, args.editable)
+writer = make_writer_from_reader(reader, editable)
 
 field_content = {
 	"Détails3": "Dépense 3",
@@ -50,5 +54,5 @@ radio_btn_group4 = RadioBtnGroup(
 update_page_fields(writer.getPage(0), field_content,
 	radio_btn_group1, radio_btn_group2, radio_btn_group4)
 
-set_need_appearances(writer, not args.unset_na)
+set_need_appearances(writer, need_appearances)
 writer.write(file_filled_fields.open(mode="wb"))
