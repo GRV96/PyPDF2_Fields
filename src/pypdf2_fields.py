@@ -182,6 +182,9 @@ def update_page_fields(page, fields, *radio_btn_groups):
 					if button_group is not None:
 						button_name = button_group[button_index]
 
+						# This function needs the RadioBtnGroup instances
+						# because the index of the selected button is
+						# required here.
 						annot_parent[NameObject(_KEY_KIDS)].getObject()\
 							[button_index].getObject()[NameObject(_KEY_AS)]\
 							= NameObject(button_name)
