@@ -93,7 +93,7 @@ def set_need_appearances(pdf_writer, bool_val):
 	"""
 	Sets property _root_object["/AcroForm"]["/NeedAppearances"] of the given
 	PdfFileWriter instance to a Boolean value. Setting it to True can be
-	necessary to make the content of text fields visible in the file produced
+	necessary to make the text fields' content visible in the file produced
 	by pdf_writer.
 
 	Args:
