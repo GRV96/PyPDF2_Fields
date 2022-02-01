@@ -144,9 +144,6 @@ def update_page_fields(page, fields, *radio_btn_groups):
 	else:
 		radio_buttons = False
 
-	# Names of the radio button groups that were set
-	radio_btn_grp_names = list()
-
 	page_annots = page[_KEY_ANNOTS]
 
 	for writer_annot in page_annots:
@@ -178,7 +175,6 @@ def update_page_fields(page, fields, *radio_btn_groups):
 				annot_parent_type = get_field_type(annot_parent)
 
 				if annot_parent_name in fields\
-						and annot_parent_name not in radio_btn_grp_names\
 						and annot_parent_type == PdfFieldType.RADIO_BTN_GROUP:
 					button_index = fields[annot_parent_name]
 					button_group = btn_group_dict.get(annot_parent_name)
@@ -186,11 +182,12 @@ def update_page_fields(page, fields, *radio_btn_groups):
 					if button_group is not None:
 						button_name = button_group[button_index]
 
+						# This function needs the RadioBtnGroup instances
+						# because the index of the selected button is
+						# required here.
 						annot_parent[NameObject(_KEY_KIDS)].getObject()\
 							[button_index].getObject()[NameObject(_KEY_AS)]\
 							= NameObject(button_name)
 
 						annot_parent[NameObject(_KEY_V)]\
 							= NameObject(button_name)
-
-						radio_btn_grp_names.append(annot_parent_name)
