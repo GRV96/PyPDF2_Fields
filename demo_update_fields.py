@@ -29,6 +29,7 @@ need_appearances = not args.unset_na
 
 local_dir = Path(__file__).parent.resolve()
 path_empty_fields = local_dir/"tests/fields_empty.pdf"
+# Included in gitignore. Do not change.
 path_filled_fields = local_dir/"demo_result.pdf"
 
 reader = PdfFileReader(path_empty_fields.open(mode="rb"), strict=False)
