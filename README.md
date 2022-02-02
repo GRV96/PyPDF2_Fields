@@ -14,27 +14,27 @@ modifiables
 
 À cette fin, PyPDF2_Fields fournit les fonctions ci-dessous.
 
-`get_field_type`
+* **`get_field_type`**
 
 Identifie le type d’un champ d’un fichier PDF. La valeur renvoyée est un membre
 de l’énumeration `PdfFieldType`, aussi incluse dans cette bibliothèque.
 
-`make_writer_from_reader`
+* **`make_writer_from_reader`**
 
 Crée un objet `PdfFileWriter` dont le contenu est identique à celui de l’objet
 `PdfFileReader` donné. Selon le choix de l’appelant, cet écriveur produira un
 fichier modifiable ou non.
 
-`pdf_field_name_val_dict`
+* **`pdf_field_name_val_dict`**
 
 Constitue un dictionnaire associant le nom des champs à leur valeur.
 
-`set_need_appearances`
+* **`set_need_appearances`**
 
 Assure qu’un `PdfFileWriter` produira un fichier dont le contenu des champs
 sera visible.
 
-`update_page_fields`
+* **`update_page_fields`**
 
 Définit la valeur des champs de texte, des boîtes à cocher et des groupes de
 boutons radio. Cette fonction utilise des instances de la classe
@@ -54,27 +54,27 @@ will be editable
 
 For this purpose, PyPDF2 provides the functions below.
 
-`get_field_type`
+* **`get_field_type`**
 
 Identifies the type of a field from a PDF file. The returned value is a member
 of enumeration `PdfFieldType`, which is also included in this library.
 
-`make_writer_from_reader`
+* **`make_writer_from_reader`**
 
 Creates a `PdfFileWriter` object whose content is identical to that of the
 given `PdfFileReader` object. Depending on the caller’s choice, the file
 produced by that writer will be editable or not.
 
-`pdf_field_name_val_dict`
+* **`pdf_field_name_val_dict`**
 
 Creates a dictionary that maps the fields’ name to their value.
 
-`set_need_appearances`
+* **`set_need_appearances`**
 
 Ensures that a `PdfFileWriter` will produce a file with fields whose content
 will be visible.
 
-`update_page_fields`
+* **`update_page_fields`**
 
 Sets the value of text fields, checkboxes and radio button groups. This
 function uses instances of class `RadioBtnGroup`, which is also included in
