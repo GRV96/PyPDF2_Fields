@@ -8,7 +8,7 @@ from ..PyPDF2_Fields import\
 	get_field_type
 
 
-_FIELDS_EMPTY_PATH = (Path(__file__).parent/"fields_empty.pdf").resolve()
+_FIELDS_EMPTY_PATH = Path(__file__).parent.resolve()/"fields_empty.pdf"
 _MODE_RB = "rb"
 
 
