@@ -3,7 +3,7 @@ import pytest
 from pathlib import Path
 from PyPDF2 import PdfFileReader
 
-from ..src import\
+from ..PyPDF2_Fields import\
 	PdfFieldType,\
 	get_field_type
 

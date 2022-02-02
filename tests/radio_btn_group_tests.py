@@ -1,6 +1,6 @@
 import pytest
 
-from ..src import RadioBtnGroup
+from ..PyPDF2_Fields import RadioBtnGroup
 
 
 def getitem_exception_test(index):
