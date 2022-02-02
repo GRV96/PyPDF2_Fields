@@ -56,8 +56,8 @@ For this purpose, PyPDF2 provides the functions below.
 
 * **`get_field_type`**
 
-Identifies the type of a field from a PDF file. The returned value is a member
-of enumeration `PdfFieldType`, which is also included in this library.
+Identifies the type of a PDF file's field. The returned value is a member of
+enumeration `PdfFieldType`, which is also included in this library.
 
 * **`make_writer_from_reader`**
 
