@@ -40,6 +40,9 @@ Définit la valeur des champs de texte, des boîtes à cocher et des groupes de
 boutons radio. Cette fonction utilise des instances de la classe
 `RadioBtnGroup`, aussi incluse dans cette bibliothèque.
 
+Voyez l'exemple d'utilisation `demo_update_fields.py` dans le dépôt de code
+source.
+
 ## English
 
 Library PyPDF2_Fields is a complement to PyPDF2. It helps using a PDF file’s
@@ -79,3 +82,5 @@ will be visible.
 Sets the value of text fields, checkboxes and radio button groups. This
 function uses instances of class `RadioBtnGroup`, which is also included in
 this library.
+
+See usage example `demo_update_fields.py` in the source code repository.
