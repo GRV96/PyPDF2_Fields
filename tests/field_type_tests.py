@@ -3,12 +3,12 @@ import pytest
 from pathlib import Path
 from PyPDF2 import PdfFileReader
 
-from ..src import\
+from ..PyPDF2_Fields import\
 	PdfFieldType,\
 	get_field_type
 
 
-_FIELDS_EMPTY_PATH = (Path(__file__).parent/"fields_empty.pdf").resolve()
+_FIELDS_EMPTY_PATH = Path(__file__).parent.resolve()/"fields_empty.pdf"
 _MODE_RB = "rb"
 
 

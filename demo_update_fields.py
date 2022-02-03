@@ -8,7 +8,7 @@ from argparse import ArgumentParser
 from pathlib import Path
 from PyPDF2 import PdfFileReader
 
-from src import\
+from PyPDF2_Fields import\
 	make_writer_from_reader,\
 	RadioBtnGroup,\
 	set_need_appearances,\
