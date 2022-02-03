@@ -22,8 +22,8 @@ de l’énumeration `PdfFieldType`, aussi incluse dans cette bibliothèque.
 * **`make_writer_from_reader`**
 
 Crée un objet `PdfFileWriter` dont le contenu est identique à celui de l’objet
-`PdfFileReader` donné. Selon le choix de l’appelant, cet écriveur produira un
-fichier modifiable ou non.
+`PdfFileReader` donné. Selon le choix de l’appelant, les champs du fichier
+produit par cet écriveur seront modifiables ou non.
 
 * **`pdf_field_name_val_dict`**
 
@@ -65,8 +65,8 @@ enumeration `PdfFieldType`, which is also included in this library.
 * **`make_writer_from_reader`**
 
 Creates a `PdfFileWriter` object whose content is identical to that of the
-given `PdfFileReader` object. Depending on the caller’s choice, the file
-produced by that writer will be editable or not.
+given `PdfFileReader` object. Depending on the caller’s choice, the fields of
+the file produced by that writer will be editable or not.
 
 * **`pdf_field_name_val_dict`**
 
