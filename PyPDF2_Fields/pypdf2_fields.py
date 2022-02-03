@@ -121,15 +121,16 @@ def update_page_fields(page, fields, *radio_btn_groups):
 	Checkboxes must be set to a string that represents their checked or
 	unchecked state. For a radio button group, the value must be the index of
 	the selected button. The index must correspond to a button name contained
-	in the RadioBtnGroup instance in argument radio_btn_groups that bears the
-	name of the group. Action buttons are ignored.
+	in the RadioBtnGroup instance in argument *radio_btn_groups that bears the
+	group's name. This function ignores fields of type action button.
 
 	Args:
 		page (PyPDF2.pdf.PageObject): a page from a PdfFileWriter instance
 		fields (dict): Its keys are field names; its values are the data to
 			put in the fields.
 		*radio_btn_groups: RadioBtnGroup instances that represent the radio
-			button groups in page
+			button groups in page. This argument is optional if no radio button
+			group is being set.
 
 	Raises:
 		IndexError: if argument fields sets a radio button group to an
