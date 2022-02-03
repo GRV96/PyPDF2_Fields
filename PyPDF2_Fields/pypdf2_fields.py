@@ -113,27 +113,28 @@ def set_need_appearances(pdf_writer, bool_val):
 		= BooleanObject(bool_val)
 
 
-def update_page_fields(page, fields, *radio_btn_groups):
+def update_page_fields(page, field_content, *radio_btn_groups):
 	"""
 	Sets the fields in the given PdfFileWriter page to the values contained in
-	argument fields. Every key in fields must be the name of a field in page.
-	Text fields can be set to any object, which will be converted to a string.
-	Checkboxes must be set to a string that represents their checked or
-	unchecked state. For a radio button group, the value must be the index of
-	the selected button. The index must correspond to a button name contained
-	in the RadioBtnGroup instance in argument *radio_btn_groups that bears the
-	group's name. This function ignores fields of type action button.
+	argument field_content. Every key in this dictionary must be the name of a
+	field in page. Text fields can be set to any object, which will be
+	converted to a string. Checkboxes must be set to a string that represents
+	their checked or unchecked state. For a radio button group, the value must
+	be the index of the selected button. The index must correspond to a button
+	name contained in the RadioBtnGroup instance in argument *radio_btn_groups
+	that bears the group's name. This function ignores fields of type action
+	button.
 
 	Args:
 		page (PyPDF2.pdf.PageObject): a page from a PdfFileWriter instance
-		fields (dict): Its keys are field names; its values are the data to
-			put in the fields.
+		field_content (dict): Its keys are field names; its values are the data
+			to put in the fields.
 		*radio_btn_groups: RadioBtnGroup instances that represent the radio
 			button groups in page. This argument is optional if no radio button
 			group is being set.
 
 	Raises:
-		IndexError: if argument fields sets a radio button group to an
+		IndexError: if argument field_content sets a radio button group to an
 			incorrect index
 	"""
 	# This function is based on PdfFileWriter.updatePageFormFieldValues and an answer to this question:
@@ -153,8 +154,8 @@ def update_page_fields(page, fields, *radio_btn_groups):
 		field_type = get_field_type(writer_annot)
 
 		# Set text fields and checkboxes
-		if annot_name in fields:
-			field_value = fields[annot_name]
+		if annot_name in field_content:
+			field_value = field_content[annot_name]
 
 			if field_type == PdfFieldType.TEXT_FIELD:
 				writer_annot.update({
@@ -175,12 +176,13 @@ def update_page_fields(page, fields, *radio_btn_groups):
 				annot_parent_name = annot_parent.get(_KEY_T).getObject()
 				annot_parent_type = get_field_type(annot_parent)
 
-				if annot_parent_name in fields\
+				if annot_parent_name in field_content\
 						and annot_parent_type == PdfFieldType.RADIO_BTN_GROUP:
-					button_index = fields[annot_parent_name]
+					button_index = field_content[annot_parent_name]
 					button_group = btn_group_dict.get(annot_parent_name)
 
 					if button_group is not None:
+						# This instruction can raise an IndexError.
 						button_name = button_group[button_index]
 
 						# This function needs the RadioBtnGroup instances
