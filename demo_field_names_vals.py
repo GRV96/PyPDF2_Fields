@@ -1,15 +1,34 @@
 """
-This demo of library PyPDF2_Fields extracts data from a PDF file's fields and
-prints their name-value pairs in the console.
+This demo of library PyPDF2_Fields prints the name, type and value of a PDF
+file's fields in the console.
 """
 
 
 from argparse import ArgumentParser
 from pathlib import Path
 from PyPDF2 import PdfFileReader
-from sys import argv
 
-from PyPDF2_Fields import pdf_field_name_val_dict
+from PyPDF2_Fields import\
+	PdfFieldType,\
+	get_field_type,\
+	pdf_field_name_val_dict
+
+
+def field_type_to_str(field_type):
+	if field_type == PdfFieldType.NONE:
+		return "none"
+
+	elif field_type == PdfFieldType.ACTION_BTN:
+		return "action btn"
+
+	elif field_type == PdfFieldType.CHECKBOX:
+		return "checkbox"
+
+	elif field_type == PdfFieldType.RADIO_BTN_GROUP:
+		return "radio btn group"
+
+	elif field_type == PdfFieldType.TEXT_FIELD:
+		return "text"
 
 
 parser = ArgumentParser(description=__doc__)
@@ -31,4 +50,7 @@ fields = reader.getFields()
 field_names_vals = pdf_field_name_val_dict(fields, filter_none)
 
 for name, value in field_names_vals.items():
-	print(f"{name}: {value}")
+	field = fields[name]
+	field_type = get_field_type(field)
+	type_str = field_type_to_str(field_type)
+	print(f"{name} ({type_str}): {value}")
