@@ -42,7 +42,7 @@ field_content = {
 	"Group4": 0,
 	# "Yes" in French. Makes the box checked.
 	"Boite1": "/Oui",
-	# "No" in French. Makes the box unchecked.
+	# "No" in French. Makes the box unchecked. Optional.
 	"Boite3": "/Non",
 	"Date": "2022-01-21",
 	"Province": "Québec"

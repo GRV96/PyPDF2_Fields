@@ -12,7 +12,7 @@ from ..PyPDF2_Fields import\
 
 
 _FIELDS_EMPTY_PATH = Path(__file__).parent.resolve()/"fields_empty.pdf"
-_TEST_FILE_PATH = Path(__file__).parent.resolve()/"name_val_test_file.pdf"
+_TEST_FILE_NAME = "name_val_test_file.pdf"
 
 _MODE_RB = "rb"
 _MODE_WB = "wb"
@@ -39,15 +39,7 @@ _EXPECTED_VALUES = {
 }
 
 
-def _delete_test_file():
-	_TEST_FILE_PATH.unlink()
-
-
-def _field_content_test(ignore_none):
-	_make_test_file()
-	reader = _make_reader_for_test_file()
-	fields = reader.getFields()
-
+def _field_content_test(fields, ignore_none):
 	field_names_vals = pdf_field_name_val_dict(fields, ignore_none)
 
 	expected_names = list(_EXPECTED_VALUES.keys())
@@ -77,9 +69,9 @@ def _field_content_test(ignore_none):
 			assert field_value is None
 
 
-def _make_test_file():
-	reader = _make_reader_for_template()
-	writer = make_writer_from_reader(reader, False)
+def _make_test_file(tmp_dir):
+	template_reader = _make_reader_for_template()
+	writer = make_writer_from_reader(template_reader, False)
 
 	field_content = {
 		"Détails4": "Dépense 4",
@@ -106,23 +98,28 @@ def _make_test_file():
 		radio_btn_group1, radio_btn_group2, radio_btn_group4)
 
 	set_need_appearances(writer, True)
-	writer.write(_TEST_FILE_PATH.open(mode=_MODE_WB))
+
+	test_file_path = tmp_dir/_TEST_FILE_NAME
+	writer.write(test_file_path.open(mode=_MODE_WB))
+
+	return _make_reader_for_test_file(test_file_path)
 
 
 def _make_reader_for_template():
 	return PdfFileReader(_FIELDS_EMPTY_PATH.open(mode=_MODE_RB), strict=False)
 
 
-def _make_reader_for_test_file():
-	return PdfFileReader(_TEST_FILE_PATH.open(mode=_MODE_RB), strict=False)
+def _make_reader_for_test_file(test_file_path):
+	return PdfFileReader(test_file_path.open(mode=_MODE_RB), strict=False)
 
 
-def test_name_val_dict_dont_filter_none():
-	_field_content_test(False)
+def test_name_val_dict_dont_filter_none(tmp_path):
+	reader = _make_test_file(tmp_path)
+	fields = reader.getFields()
+	_field_content_test(fields, False)
 
 
-def test_name_val_dict_filter_none():
-	_field_content_test(True)
-
-
-#_delete_test_file()
+def test_name_val_dict_filter_none(tmp_path):
+	reader = _make_test_file(tmp_path)
+	fields = reader.getFields()
+	_field_content_test(fields, True)
