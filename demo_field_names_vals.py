@@ -11,7 +11,7 @@ from PyPDF2 import PdfFileReader
 from PyPDF2_Fields import\
 	PdfFieldType,\
 	get_field_type,\
-	pdf_field_name_val_dict
+	pair_fields_name_and_val
 
 
 def field_type_to_str(field_type):
@@ -47,7 +47,7 @@ reader = PdfFileReader(pdf_file_path.open(mode="rb"), strict=False)
 
 fields = reader.getFields()
 
-field_names_vals = pdf_field_name_val_dict(fields, filter_none)
+field_names_vals = pair_fields_name_and_val(fields, filter_none)
 
 for name, value in field_names_vals.items():
 	field = fields[name]

@@ -5,7 +5,7 @@ from PyPDF2 import PdfFileReader
 
 from ..PyPDF2_Fields import\
 	make_writer_from_reader,\
-	pdf_field_name_val_dict,\
+	pair_fields_name_and_val,\
 	RadioBtnGroup,\
 	set_need_appearances,\
 	update_page_fields
@@ -45,7 +45,7 @@ _EXPECTED_VALUES = {
 def _field_content_test(test_dir_path, ignore_none):
 	reader = _make_test_file_and_reader(test_dir_path)
 	fields = reader.getFields()
-	field_names_vals = pdf_field_name_val_dict(fields, ignore_none)
+	field_names_vals = pair_fields_name_and_val(fields, ignore_none)
 
 	expected_names = list(_EXPECTED_VALUES.keys())
 	expected_names.sort()

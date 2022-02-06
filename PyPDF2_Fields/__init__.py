@@ -4,7 +4,7 @@ from .field_types import\
 
 from .pypdf2_fields import\
 	make_writer_from_reader,\
-	pdf_field_name_val_dict,\
+	pair_fields_name_and_val,\
 	set_need_appearances,\
 	update_page_fields
 
