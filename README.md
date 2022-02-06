@@ -40,8 +40,8 @@ Définit la valeur des champs de texte, des boîtes à cocher et des groupes de
 boutons radio. Cette fonction utilise des instances de la classe
 `RadioBtnGroup`, aussi incluse dans cette bibliothèque.
 
-Voyez l'exemple d'utilisation `demo_update_fields.py` dans le dépôt de code
-source.
+Voyez les exemples d'utilisation `demo_field_names_vals.py` et
+`demo_update_fields.py` dans le dépôt de code source.
 
 ## English
 
@@ -83,4 +83,5 @@ Sets the value of text fields, checkboxes and radio button groups. This
 function uses instances of class `RadioBtnGroup`, which is also included in
 this library.
 
-See usage example `demo_update_fields.py` in the source code repository.
+See usage examples `demo_field_names_vals.py` and `demo_update_fields.py` in
+the source code repository.
