@@ -25,7 +25,7 @@ Crée un objet `PdfFileWriter` dont le contenu est identique à celui de l’obj
 `PdfFileReader` donné. Selon le choix de l’appelant, les champs du fichier
 produit par cet écriveur seront modifiables ou non.
 
-* **`pdf_field_name_val_dict`**
+* **`pair_fields_name_and_val`**
 
 Constitue un dictionnaire associant le nom des champs à leur valeur.
 
@@ -40,8 +40,8 @@ Définit la valeur des champs de texte, des boîtes à cocher et des groupes de
 boutons radio. Cette fonction utilise des instances de la classe
 `RadioBtnGroup`, aussi incluse dans cette bibliothèque.
 
-Voyez l'exemple d'utilisation `demo_update_fields.py` dans le dépôt de code
-source.
+Voyez les exemples d'utilisation `demo_field_names_vals.py` et
+`demo_update_fields.py` dans le dépôt de code source.
 
 ## English
 
@@ -68,7 +68,7 @@ Creates a `PdfFileWriter` object whose content is identical to that of the
 given `PdfFileReader` object. Depending on the caller’s choice, the fields of
 the file produced by that writer will be editable or not.
 
-* **`pdf_field_name_val_dict`**
+* **`pair_fields_name_and_val`**
 
 Creates a dictionary that maps the fields’ name to their value.
 
@@ -83,4 +83,5 @@ Sets the value of text fields, checkboxes and radio button groups. This
 function uses instances of class `RadioBtnGroup`, which is also included in
 this library.
 
-See usage example `demo_update_fields.py` in the source code repository.
+See usage examples `demo_field_names_vals.py` and `demo_update_fields.py` in
+the source code repository.

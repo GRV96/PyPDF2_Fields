@@ -63,7 +63,7 @@ def make_writer_from_reader(pdf_reader, editable):
 	return pdf_writer
 
 
-def pdf_field_name_val_dict(pdf_fields, filter_none):
+def pair_fields_name_and_val(pdf_fields, filter_none):
 	"""
 	Creates a dictionary that maps the name of a PDF file's fields to their
 	value.
