@@ -39,7 +39,9 @@ _EXPECTED_VALUES = {
 }
 
 
-def _field_content_test(fields, ignore_none):
+def _field_content_test(test_dir_path, ignore_none):
+	reader = _make_test_file_and_reader(test_dir_path)
+	fields = reader.getFields()
 	field_names_vals = pdf_field_name_val_dict(fields, ignore_none)
 
 	expected_names = list(_EXPECTED_VALUES.keys())
@@ -69,7 +71,15 @@ def _field_content_test(fields, ignore_none):
 			assert field_value is None
 
 
-def _make_test_file(tmp_dir):
+def _make_reader_for_template():
+	return PdfFileReader(_FIELDS_EMPTY_PATH.open(mode=_MODE_RB), strict=False)
+
+
+def _make_reader_for_test_file(test_file_path):
+	return PdfFileReader(test_file_path.open(mode=_MODE_RB), strict=False)
+
+
+def _make_test_file_and_reader(test_dir_path):
 	template_reader = _make_reader_for_template()
 	writer = make_writer_from_reader(template_reader, False)
 
@@ -99,27 +109,15 @@ def _make_test_file(tmp_dir):
 
 	set_need_appearances(writer, True)
 
-	test_file_path = tmp_dir/_TEST_FILE_NAME
+	test_file_path = test_dir_path/_TEST_FILE_NAME
 	writer.write(test_file_path.open(mode=_MODE_WB))
 
 	return _make_reader_for_test_file(test_file_path)
 
 
-def _make_reader_for_template():
-	return PdfFileReader(_FIELDS_EMPTY_PATH.open(mode=_MODE_RB), strict=False)
-
-
-def _make_reader_for_test_file(test_file_path):
-	return PdfFileReader(test_file_path.open(mode=_MODE_RB), strict=False)
-
-
 def test_name_val_dict_dont_filter_none(tmp_path):
-	reader = _make_test_file(tmp_path)
-	fields = reader.getFields()
-	_field_content_test(fields, False)
+	_field_content_test(tmp_path, False)
 
 
 def test_name_val_dict_filter_none(tmp_path):
-	reader = _make_test_file(tmp_path)
-	fields = reader.getFields()
-	_field_content_test(fields, True)
+	_field_content_test(tmp_path, True)
