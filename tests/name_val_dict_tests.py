@@ -60,11 +60,11 @@ def _field_content_test(test_dir_path, ignore_none):
 		for name in expected_names:
 			assert name in actual_names
 
-	for field_value in expected_names:
-		actual_value = field_names_vals.get(field_value)
-		expected_value = _EXPECTED_VALUES.get(field_value)
+	for field_name in expected_names:
+		actual_value = field_names_vals.get(field_name)
+		expected_value = _EXPECTED_VALUES.get(field_name)
 		assert str(actual_value) == str(expected_value)
-		del field_names_vals[field_value]
+		del field_names_vals[field_name]
 
 	if ignore_none:
 		assert len(field_names_vals) == 0
