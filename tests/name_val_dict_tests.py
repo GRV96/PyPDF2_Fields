@@ -17,6 +17,9 @@ _TEST_FILE_NAME = "name_val_test_file.pdf"
 _MODE_RB = "rb"
 _MODE_WB = "wb"
 
+# Group4 works fine in the demo, but it contains a strange binary
+# string here. It is ignored in the tests for this reason.
+
 # The value of these fields is calculated automatically
 # if and only if the test file is filled manually.
 # "Réclamation$", "TotalMontant", "TotalccMontant$"
