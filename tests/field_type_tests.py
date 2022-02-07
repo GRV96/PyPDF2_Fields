@@ -31,6 +31,12 @@ def test_no_field_type_key():
 	assert get_field_type(a_dict) == PdfFieldType.NONE
 
 
+def test_field_type_other():
+	field_type_test("Compte", PdfFieldType.OTHER)
+	field_type_test("UBR", PdfFieldType.OTHER)
+	field_type_test("aaaa-mm-jj", PdfFieldType.OTHER)
+
+
 def test_field_type_action_btn():
 	field_type_test("Initialisation", PdfFieldType.ACTION_BTN)
 	field_type_test("Valider-BAS", PdfFieldType.ACTION_BTN)

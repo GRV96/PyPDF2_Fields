@@ -1,7 +1,8 @@
 from enum import Enum
 
 
-_FIELD_TYPE = "/FT"
+_KEY_FF = "/Ff"
+_KEY_FIELD_TYPE = "/FT"
 _KEY_KIDS = "/Kids"
 _KEY_TU = "/TU"
 _TYPE_BUTTON = "/Btn"
@@ -13,10 +14,11 @@ class PdfFieldType(Enum):
 	This enumeration represents the field types that a PDF file can contain.
 	"""
 	NONE = -1
-	ACTION_BTN = 0
-	CHECKBOX = 1
-	RADIO_BTN_GROUP = 2
-	TEXT_FIELD = 3
+	OTHER = 0
+	ACTION_BTN = 1
+	CHECKBOX = 2
+	RADIO_BTN_GROUP = 3
+	TEXT_FIELD = 4
 
 
 def get_field_type(pdf_field):
@@ -31,9 +33,9 @@ def get_field_type(pdf_field):
 
 	Returns:
 		PdfFieldType: the type of pdf_field. PdfFieldType.NONE indicates that
-			no type was determined
+			no type was determined.
 	"""
-	type_val = pdf_field.get(_FIELD_TYPE)
+	type_val = pdf_field.get(_KEY_FIELD_TYPE)
 
 	if type_val == _TYPE_TEXT:
 		return PdfFieldType.TEXT_FIELD
@@ -44,6 +46,9 @@ def get_field_type(pdf_field):
 
 		elif _KEY_TU in pdf_field:
 			return PdfFieldType.ACTION_BTN
+
+		elif _KEY_FF in pdf_field:
+			return PdfFieldType.OTHER
 
 		else:
 			return PdfFieldType.CHECKBOX
