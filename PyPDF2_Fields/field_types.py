@@ -32,8 +32,9 @@ def get_field_type(pdf_field):
 			returned by PdfFileReader's method getFields.
 
 	Returns:
-		PdfFieldType: the type of pdf_field. PdfFieldType.NONE indicates that
-			no type was determined.
+		PdfFieldType: the type of pdf_field. PdfFieldType.OTHER indicates that
+			no type was determined. PdfFieldType.NONE indicates that the given
+			dictionary probably does not represent a field.
 	"""
 	type_val = pdf_field.get(_KEY_FIELD_TYPE)
 

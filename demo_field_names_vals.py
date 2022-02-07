@@ -18,6 +18,9 @@ def field_type_to_str(field_type):
 	if field_type == PdfFieldType.NONE:
 		return "none"
 
+	elif field_type == PdfFieldType.OTHER:
+		return "other"
+
 	elif field_type == PdfFieldType.ACTION_BTN:
 		return "action btn"
 
