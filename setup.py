@@ -5,6 +5,7 @@
 # https://docs.python.org/3/distutils/sourcedist.html
 # https://github.com/conda-incubator/grayskull
 # https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+# https://packaging.python.org/en/latest/guides/using-manifest-in/
 
 
 import setuptools
@@ -41,14 +42,14 @@ def _make_requirement_list():
 if __name__ == "__main__":
 	setuptools.setup(
 		name = "PyPDF2_Fields",
-		version = "0.1.2",
+		version = "0.1.3",
 		author = "Guyllaume Rousseau",
 		description = "Library PyPDF2_Fields is a complement to PyPDF2. It helps using a PDF file’s fields by facilitating several tasks.",
 		long_description = _make_long_description(),
 		long_description_content_type = "text/markdown",
 		url = "https://github.com/GRV96/PyPDF2_Fields",
 		classifiers = [
-			"Development Status :: 5 - Production/Stable",
+			"Development Status :: 4 - Beta",
 			"Intended Audience :: Developers",
 			"License :: OSI Approved :: MIT License",
 			"Operating System :: OS Independent",
