@@ -38,6 +38,7 @@ parser = ArgumentParser(description=__doc__)
 
 parser.add_argument("-f", "--file", type=Path,
 	help="the path to the file whose fields will be printed")
+# Run demo_update_fields.py to get a PDF file with fields.
 
 parser.add_argument("-e", "--empty", action="store_true",
 	help="print the empty fields.")
