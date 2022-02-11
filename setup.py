@@ -18,24 +18,9 @@ def _make_long_description():
 	return long_description[start_index:]
 
 
-def _make_requirement_list():
-	with open("requirements.txt", "r", encoding="utf-8") as req_file:
-		req_str = req_file.read()
-
-	requirements = req_str.split("\n")
-
-	i = 0
-	while i < len(requirements):
-		if len(requirements[i]) == 0:
-			del requirements[i]
-		i += 1
-
-	return requirements
-
-
 setuptools.setup(
 	name = "PyPDF2_Fields",
-	version = "0.1.0",
+	version = "0.1.1",
 	author = "Guyllaume Rousseau",
 	description = "Library PyPDF2_Fields is a complement to PyPDF2. It helps using a PDF file’s fields by facilitating several tasks.",
 	long_description = _make_long_description(),
@@ -50,7 +35,7 @@ setuptools.setup(
 		"Topic :: Software Development :: Libraries :: Python Modules",
 		"Topic :: Utilities"
 	],
-	install_requires = _make_requirement_list(),
+	install_requires = ("PyPDF2==1.26.0",),
 	packages = setuptools.find_packages(exclude=("tests",)),
 	license = "MIT",
 	license_files = ("LICENSE",)
