@@ -18,10 +18,10 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
   run:
     - pypdf2 ==1.26.0
-    - python
+    - python >=3.6
 
 test:
   imports:
@@ -33,7 +33,9 @@ test:
 
 about:
   home: https://github.com/GRV96/PyPDF2_Fields
-  summary: "Library PyPDF2_Fields is a complement to PyPDF2. It helps using a PDF file's fields by facilitating several tasks."
+  summary: >-
+    Library PyPDF2_Fields is a complement to PyPDF2. It helps
+    using a PDF file's fields by facilitating several tasks.
   description: "See the README in the GitHub repository (home)."
   license: MIT
   license_file: LICENSE
