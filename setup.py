@@ -29,13 +29,12 @@ def _make_requirement_list():
 	with open(_REQUIREMENT_FILE, _MODE_R, encoding=_ENCODING_UTF8) as req_file:
 		req_str = req_file.read()
 
-	requirements = req_str.split("\n")
+	raw_requirements = req_str.split("\n")
 
-	i = 0
-	while i < len(requirements):
-		if len(requirements[i]) == 0:
-			del requirements[i]
-		i += 1
+	requirements = list()
+	for requirement in raw_requirements:
+		if len(requirement) > 0:
+			requirements.append(requirement)
 
 	return requirements
 
