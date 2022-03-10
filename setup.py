@@ -41,9 +41,9 @@ def _make_requirement_list():
 if __name__ == "__main__":
 	setuptools.setup(
 		name = "PyPDF2_Fields",
-		version = "1.0.0",
+		version = "1.0.1",
 		author = "Guyllaume Rousseau",
-		description = "Library PyPDF2_Fields is a complement to PyPDF2. It helps using a PDF file’s fields by facilitating several tasks.",
+		description = "Library PyPDF2_Fields is a complement to PyPDF2. It helps reading and setting a PDF file’s fields, knowing their type and controlling their editability.",
 		long_description = _make_long_description(),
 		long_description_content_type = "text/markdown",
 		url = "https://github.com/GRV96/PyPDF2_Fields",
