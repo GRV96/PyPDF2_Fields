@@ -29,22 +29,21 @@ def _make_requirement_list():
 	with open(_REQUIREMENT_FILE, _MODE_R, encoding=_ENCODING_UTF8) as req_file:
 		req_str = req_file.read()
 
-	requirements = req_str.split("\n")
+	raw_requirements = req_str.split("\n")
 
-	i = 0
-	while i < len(requirements):
-		if len(requirements[i]) == 0:
-			del requirements[i]
-		i += 1
+	requirements = list()
+	for requirement in raw_requirements:
+		if len(requirement) > 0:
+			requirements.append(requirement)
 
 	return requirements
 
 if __name__ == "__main__":
 	setuptools.setup(
 		name = "PyPDF2_Fields",
-		version = "1.0.0",
+		version = "1.0.1",
 		author = "Guyllaume Rousseau",
-		description = "Library PyPDF2_Fields is a complement to PyPDF2. It helps using a PDF file’s fields by facilitating several tasks.",
+		description = "Library PyPDF2_Fields is a complement to PyPDF2. It helps reading and setting a PDF file’s fields, knowing their type and controlling their editability.",
 		long_description = _make_long_description(),
 		long_description_content_type = "text/markdown",
 		url = "https://github.com/GRV96/PyPDF2_Fields",
