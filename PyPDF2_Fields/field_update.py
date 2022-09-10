@@ -76,11 +76,13 @@ def update_page_fields(page, field_content, *radio_btn_groups):
 		field_type = get_field_type(writer_annot)
 
 		if annot_name in field_content:
+			field_value = field_content[annot_name]
 			_update_text_field_or_checkbox(
-				writer_annot, field_content, annot_name, field_type)
+				writer_annot, field_value, field_type)
 
 		elif radio_buttons and annot_name is None:
-			_update_radio_btn_group(writer_annot, field_content, btn_group_dict)
+			_update_radio_btn_group(
+				writer_annot, field_content, btn_group_dict)
 
 
 def _update_radio_btn_group(writer_annot, field_content, btn_group_dict):
@@ -110,10 +112,7 @@ def _update_radio_btn_group(writer_annot, field_content, btn_group_dict):
 					= NameObject(button_name)
 
 
-def _update_text_field_or_checkbox(
-		writer_annot, field_content, annot_name, field_type):
-	field_value = field_content[annot_name]
-
+def _update_text_field_or_checkbox(writer_annot, field_value, field_type):
 	if field_type == PdfFieldType.TEXT_FIELD:
 		writer_annot.update({
 			NameObject(_KEY_V): TextStringObject(field_value)
